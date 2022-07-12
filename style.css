@@ -45,6 +45,13 @@ body {
     margin-bottom: 1rem;
 }
 
+.container_bienvenida .formulario_user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .container_bienvenida .formulario_user input[type="text"] {
     display: block;
     padding: .5rem;
@@ -56,6 +63,26 @@ body {
     color: #eee;
     margin-bottom: 1rem;
     text-align: center;
+}
+
+.container_bienvenida .formulario_user input[type="button"] {
+    padding: .75rem 1rem;
+    font-size: 1.25rem;
+    border-radius: 1rem;
+    border: 2px solid #eee;
+    background-color: transparent;
+    color: #eee;
+    text-align: center;
+    margin-top: 1rem;
+    width: 60%;
+    text-transform: uppercase;
+}
+
+.container_bienvenida .formulario_user input[type="button"]:hover {
+    color: #222;
+    background-color: #eee;
+    cursor: pointer;
+    font-weight: 500;
 }
 
 @media screen and (min-width:577px) {
