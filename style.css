@@ -18,6 +18,7 @@ body {
     position: relative;
 }
 
+/* ---------- Ventana bienvenida ---------- */
 .container_bienvenida{
     position: absolute;
     width: 100%;
@@ -83,6 +84,10 @@ body {
     background-color: #eee;
     cursor: pointer;
     font-weight: 500;
+}
+
+.none {
+    display: none;
 }
 
 @media screen and (min-width:577px) {
