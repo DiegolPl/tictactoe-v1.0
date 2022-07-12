@@ -9,13 +9,55 @@
 </head>
 <body>
     <main class="window">
-        <article class="container_bienvenida">
+        <!-- <article class="container_bienvenida">
             <h1 class="titulo">Tic Tac Toe</h1>
             <h2 class="subtitulo">El mejor de 10 gana!</h2>
             <form novalidate class="formulario_user" onsubmit="event.preventDefault();">
                 <input type="text" name="nombre" id="user_name" placeholder="Ingresa tu nombre...">
                 <input type="button" value="empezar" id="btnStart">
             </form>
+        </article> -->
+        <article class="container_tablero">
+            <div class="contenedor_puntajes">
+                <div class="contenedor_puntaje" id="contenedorPuntajeJugador">
+                    <p class="nombre" id="nombreJugador">Diego</p>
+                    <p class="puntaje" id="puntajeJugador">0</p>
+                </div>
+                <div class="contenedor_puntaje" id="contenedorPuntajeComputadora">
+                    <p class="nombre" id="nombreJugador">Computadora</p>
+                    <p class="puntaje" id="puntajeJugador">0</p>
+                </div>
+            </div>
+            <h3 class="tiempo" id="tiempo">00:00</h3>
+            <article class="tablero" id="table">
+                <div class="box btnone blnone" id="box-1">
+                    <p></p>
+                </div>
+                <div class="box btnone" id="box-2">
+                    <p></p>
+                </div>
+                <div class="box btnone brnone" id="box-3">
+                    <p></p>
+                </div>
+                <div class="box blnone" id="box-4">
+                    <p></p>
+                </div>
+                <div class="box" id="box-5">
+                    <p class="maquina">x</p>
+                </div>
+                <div class="box brnone" id="box-6">
+                    <p></p>
+                </div>
+                <div class="box bbnone blnone" id="box-7">
+                    <p></p>
+                </div>
+                <div class="box bbnone" id="box-8">
+                    <p></p>
+                </div>
+                <div class="box bbnone brnone" id="box-9">
+                    <p></p>
+                </div>
+            </article>
         </article>
     </main>
     <script src="app.js"></script>

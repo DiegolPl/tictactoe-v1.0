@@ -90,7 +90,97 @@ body {
     display: none;
 }
 
+/* ---------- tablero - cabecera ---------- */
+
+.container_tablero {
+    width: 100%;
+    height: 100%;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content max-content 1fr;
+    place-items: center;
+    color: #eee;
+}
+
+.contenedor_puntajes {
+    width: 80%;
+    margin-bottom: 1rem;
+}
+
+.contenedor_puntaje {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.15rem;
+}
+
+.tiempo {
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+/* ---------- tablero ---------- */
+
+.tablero {
+    width: 100%;
+    height: 90%;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: repeat(3,max-content);
+    place-content: center;
+}
+
+.box {
+    width: 120px;
+    height: 120px;
+    border: 2px solid #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, #111, #222);
+    cursor: pointer;
+}
+
+.box:hover {
+    background-image: linear-gradient(to right, #222, #111);
+}
+
+.btnone {
+    border-top: none;
+}
+
+.bbnone {
+    border-bottom: none;
+}
+
+.brnone {
+    border-right: none;
+}
+
+.blnone {
+    border-left: none;
+}
+
+.box p {
+    text-transform: uppercase;
+    font-size: 5rem;
+}
+
+.maquina {
+    color: rgb(241, 25, 25);
+}
+
+.jugador {
+    color: beige;
+}
+
+/* ----------  ---------- */
+
+
 @media screen and (min-width:577px) {
+    /* ---------- Ventana bienvenida ---------- */
     .container_bienvenida .titulo  {
         font-size: 3.2rem;
     }
@@ -98,10 +188,24 @@ body {
     .container_bienvenida .subtitulo {
         font-size: 1.5rem;
     }
+    
+    /* ---------- tablero - cabecera ---------- */
+
+    .contenedor_puntajes {
+        width: 60%;
+    }
 }
 
-/* @media screen and (min-width:767px) {
-    .window {
-        
+@media screen and (min-width:767px) {
+    /* ---------- tablero - cabecera ---------- */
+    .contenedor_puntajes {
+        width: 40%;
     }
-} */
+}
+
+@media screen and (min-width:1024px) {
+    /* ---------- tablero - cabecera ---------- */
+    .contenedor_puntajes {
+        width: 25%;
+    }
+}
