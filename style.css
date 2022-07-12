@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.window {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right bottom, #111, #555);
+    position: relative;
+}
+
+/* ---------- Ventana bienvenida ---------- */
+.container_bienvenida{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right bottom, #111, #555);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.container_bienvenida .titulo, .container_bienvenida .subtitulo {
+    text-transform: uppercase;
+    font-size: 2.7rem;
+    margin-bottom: 1.5rem;
+    color: #eee;
+    text-shadow: .12rem .12rem .15rem #aaa;
+}
+
+.container_bienvenida .subtitulo {
+    font-size: 1.1rem;
+    text-shadow: none;
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+.container_bienvenida .formulario_user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_bienvenida .formulario_user input[type="text"] {
+    display: block;
+    padding: .5rem;
+    font-size: 1.1rem;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #eee;
+    background-color: transparent;
+    color: #eee;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.container_bienvenida .formulario_user input[type="button"] {
+    padding: .75rem 1rem;
+    font-size: 1.25rem;
+    border-radius: 1rem;
+    border: 2px solid #eee;
+    background-color: transparent;
+    color: #eee;
+    text-align: center;
+    margin-top: 1rem;
+    width: 60%;
+    text-transform: uppercase;
+}
+
+.container_bienvenida .formulario_user input[type="button"]:hover {
+    color: #222;
+    background-color: #eee;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.none {
+    display: none;
+}
+
+@media screen and (min-width:577px) {
+    .container_bienvenida .titulo  {
+        font-size: 3.2rem;
+    }
+
+    .container_bienvenida .subtitulo {
+        font-size: 1.5rem;
+    }
+}
+
+/* @media screen and (min-width:767px) {
+    .window {
+        
+    }
+} */
