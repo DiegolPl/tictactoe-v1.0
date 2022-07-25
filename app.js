@@ -102,7 +102,7 @@ for(let i = 0; i < boxes.length; i++){
             let hayVictoria = victoryFor(board, "X")
             if(!hayVictoria){
                 drawMove(board)
-                setTimeout(()=>displayBoard(board),2000)
+                setTimeout(()=>displayBoard(board),1500)
             }
         }
     })
@@ -142,6 +142,261 @@ function drawMove(board){
     }
 
     if(listaCuadrosVacios.length > 0){
+        // Intentar ganar
+        // Analisis por fila
+
+        if(board[0][0] === "O" && board[0][1] === "O" && board[0][2] === ""){
+            board[0][2] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][0] === "O" && board[0][1] === "" && board[0][2] === "O"){
+            board[0][1] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][0] === "" && board[0][1] === "O" && board[0][2] === "O"){
+            board[0][0] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[1][0] === "O" && board[1][1] === "O" && board[1][2] === ""){
+            board[1][2] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[1][0] === "O" && board[1][1] === "" && board[1][2] === "O"){
+            board[1][1] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[1][0] === "" && board[1][1] === "O" && board[1][2] === "O"){
+            board[1][0] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[2][0] === "O" && board[2][1] === "O" && board[2][2] === ""){
+            board[2][2] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[2][0] === "O" && board[2][1] === "" && board[2][2] === "O"){
+            board[2][1] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[2][0] === "" && board[2][1] === "O" && board[2][2] === "O"){
+            board[2][0] = "O"
+            return victoryFor(board, "O")
+        }
+
+        // Analisis por columna
+
+        if(board[0][0] === "O" && board[1][0] === "O" && board[2][0] === ""){
+            board[2][0] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][0] === "O" && board[1][0] === "" && board[2][0] === "O"){
+            board[1][0] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][0] === "" && board[1][0] === "O" && board[2][0] === "O"){
+            board[0][0] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][1] === "O" && board[1][1] === "O" && board[2][1] === ""){
+            board[2][1] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][1] === "O" && board[1][1] === "" && board[2][1] === "O"){
+            board[1][1] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][1] === "" && board[1][1] === "O" && board[2][1] === "O"){
+            board[0][1] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][2] === "O" && board[1][2] === "O" && board[2][2] === ""){
+            board[2][2] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][2] === "O" && board[1][2] === "" && board[2][2] === "O"){
+            board[1][2] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][2] === "" && board[1][2] === "O" && board[2][2] === "O"){
+            board[0][2] = "O"
+            return victoryFor(board, "O")
+        }
+
+        // Analisis por diagonal
+        
+        if(board[0][0] === "O" && board[1][1] === "O" && board[2][2] === ""){
+            board[2][2] = "O"
+            return victoryFor(board, "O")
+        }
+        
+        if(board[0][0] === "O" && board[1][1] === "" && board[2][2] === "O"){
+            board[1][1] = "O"
+            return victoryFor(board, "O")
+        }
+        
+        if(board[0][0] === "" && board[1][1] === "O" && board[2][2] === "O"){
+            board[0][0] = "O"
+            return victoryFor(board, "O")
+        }
+        
+        if(board[0][2] === "O" && board[1][1] === "O" && board[2][0] === ""){
+            board[2][0] = "O"
+            return victoryFor(board, "O")
+        }
+        
+        if(board[0][2] === "O" && board[1][1] === "" && board[2][0] === "O"){
+            board[1][1] = "O"
+            return victoryFor(board, "O")
+        }
+        
+        if(board[0][2] === "" && board[1][1] === "O" && board[2][0] === "O"){
+            board[0][2] = "O"
+            return victoryFor(board, "O")
+        }
+
+        // Evitar perder
+        // Analisis por fila
+
+        if(board[0][0] === "X" && board[0][1] === "X" && board[0][2] === ""){
+            board[0][2] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][0] === "X" && board[0][1] === "" && board[0][2] === "X"){
+            board[0][1] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][0] === "" && board[0][1] === "X" && board[0][2] === "X"){
+            board[0][0] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[1][0] === "X" && board[1][1] === "X" && board[1][2] === ""){
+            board[1][2] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[1][0] === "X" && board[1][1] === "" && board[1][2] === "X"){
+            board[1][1] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[1][0] === "" && board[1][1] === "X" && board[1][2] === "X"){
+            board[1][0] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[2][0] === "X" && board[2][1] === "X" && board[2][2] === ""){
+            board[2][2] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[2][0] === "X" && board[2][1] === "" && board[2][2] === "X"){
+            board[2][1] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[2][0] === "" && board[2][1] === "X" && board[2][2] === "X"){
+            board[2][0] = "O"
+            return victoryFor(board, "O")
+        }
+
+        // Analisis por columna
+
+        if(board[0][0] === "X" && board[1][0] === "X" && board[2][0] === ""){
+            board[2][0] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][0] === "X" && board[1][0] === "" && board[2][0] === "X"){
+            board[1][0] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][0] === "" && board[1][0] === "X" && board[2][0] === "X"){
+            board[0][0] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][1] === "X" && board[1][1] === "X" && board[2][1] === ""){
+            board[2][1] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][1] === "X" && board[1][1] === "" && board[2][1] === "X"){
+            board[1][1] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][1] === "" && board[1][1] === "X" && board[2][1] === "X"){
+            board[0][1] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][2] === "X" && board[1][2] === "X" && board[2][2] === ""){
+            board[2][2] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][2] === "X" && board[1][2] === "" && board[2][2] === "X"){
+            board[1][2] = "O"
+            return victoryFor(board, "O")
+        }
+
+        if(board[0][2] === "" && board[1][2] === "X" && board[2][2] === "X"){
+            board[0][2] = "O"
+            return victoryFor(board, "O")
+        }
+
+        // Analisis por diagonal
+        
+        if(board[0][0] === "X" && board[1][1] === "X" && board[2][2] === ""){
+            board[2][2] = "O"
+            return victoryFor(board, "O")
+        }
+        
+        if(board[0][0] === "X" && board[1][1] === "" && board[2][2] === "X"){
+            board[1][1] = "O"
+            return victoryFor(board, "O")
+        }
+        
+        if(board[0][0] === "" && board[1][1] === "X" && board[2][2] === "X"){
+            board[0][0] = "O"
+            return victoryFor(board, "O")
+        }
+        
+        if(board[0][2] === "X" && board[1][1] === "X" && board[2][0] === ""){
+            board[2][0] = "O"
+            return victoryFor(board, "O")
+        }
+        
+        if(board[0][2] === "X" && board[1][1] === "" && board[2][0] === "X"){
+            board[1][1] = "O"
+            return victoryFor(board, "O")
+        }
+        
+        if(board[0][2] === "" && board[1][1] === "X" && board[2][0] === "X"){
+            board[0][2] = "O"
+            return victoryFor(board, "O")
+        }
+
+
         let indice = Math.floor(Math.random() * (listaCuadrosVacios.length - 0) + 0)
         let coords = listaCuadrosVacios[indice]
         board[coords[0]][coords[1]] = "O"
