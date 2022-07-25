@@ -58,45 +58,45 @@ for(let i = 0; i < boxes.length; i++){
         if(boxes[i].textContent === ""){
             switch(i){
                 case 0:
-                    board[0][0] = "O"
+                    board[0][0] = "X"
                     displayBoard(board)
                     break;
                 case 1:
-                    board[0][1] = "O"
+                    board[0][1] = "X"
                     displayBoard(board)
                     break;
                 case 2:
-                    board[0][2] = "O"
+                    board[0][2] = "X"
                     displayBoard(board)
                     break;
                 case 3:
-                    board[1][0] = "O"
+                    board[1][0] = "X"
                     displayBoard(board)
                     break;
                 case 4:
-                    board[1][1] = "O"
+                    board[1][1] = "X"
                     displayBoard(board)
                     break;
                 case 5:
-                    board[1][2] = "O"
+                    board[1][2] = "X"
                     displayBoard(board)
                     break;
                 case 6:
-                    board[2][0] = "O"
+                    board[2][0] = "X"
                     displayBoard(board)
                     break;
                 case 7:
-                    board[2][1] = "O"
+                    board[2][1] = "X"
                     displayBoard(board)
                     break;
                 case 8:
-                    board[2][2] = "O"
+                    board[2][2] = "X"
                     displayBoard(board)
                     break;
                 default:
                     alert("Ups, algo salió mal!")
             }
-            let hayVictoria = victoryFor(board, "O")
+            let hayVictoria = victoryFor(board, "X")
             if(!hayVictoria){
                 drawMove(board)
                 displayBoard(board)
@@ -134,7 +134,7 @@ function makeListOfFreeFields(board){
 function drawMove(board){
     let listaCuadrosVacios = makeListOfFreeFields(board);
     if(listaCuadrosVacios.length === 9){
-        board[1][1] = "X"
+        board[1][1] = "O"
         displayBoard(board)
         return
     }
@@ -142,22 +142,22 @@ function drawMove(board){
     if(listaCuadrosVacios.length > 0){
         let indice = Math.floor(Math.random() * (listaCuadrosVacios.length - 0) + 0)
         let coords = listaCuadrosVacios[indice]
-        board[coords[0]][coords[1]] = "X"
+        board[coords[0]][coords[1]] = "O"
         //return VictoryFor(board, "X")
         displayBoard(board)
-        return victoryFor(board, "X")
+        return victoryFor(board, "O")
     }
 }
 
 function victoryFor(board, sign){
     for(let fila of board){
         if(fila[0] === sign && fila[1] === sign && fila[2] === sign){
-            if(sign === "X"){
+            if(sign === "O"){
                 alert("Perdiste! - Ganador: Computadora")
                 clearInterval(tiempoJuego)
                 return true
             }
-            if(sign === "O"){
+            if(sign === "X"){
                 alert(`Felicitaciones! - Ganador: ${username}`)
                 clearInterval(tiempoJuego)
                 return true
@@ -167,12 +167,12 @@ function victoryFor(board, sign){
     
     for(let columna = 0; columna < 3; columna++){
         if(board[0][columna] === sign && board[1][columna] === sign && board[2][columna] === sign){
-            if(sign === "X"){
+            if(sign === "O"){
                 alert("Perdiste! - Ganador: Computadora")
                 clearInterval(tiempoJuego)
                 return true
             }
-            if(sign === "O"){
+            if(sign === "X"){
                 alert(`Felicitaciones! - Ganador: ${username}`)
                 clearInterval(tiempoJuego)
                 return true
@@ -181,12 +181,12 @@ function victoryFor(board, sign){
     }
     
     if(board[0][0] === sign && board[1][1] === sign && board[2][2] === sign || board[2][0] === sign && board[1][1] === sign && board[0][2] === sign){
-        if(sign === "X"){
+        if(sign === "O"){
             alert("Perdiste! - Ganador: Computadora")
             clearInterval(tiempoJuego)
             return true
         }
-        if(sign === "O"){
+        if(sign === "X"){
             alert(`Felicitaciones! - Ganador: ${username}`)
             clearInterval(tiempoJuego)
             return true
