@@ -19,7 +19,7 @@ body {
 }
 
 /* ---------- Ventana bienvenida ---------- */
-.container_bienvenida{
+.container_bienvenida, .modal_volverAJugar{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -29,9 +29,17 @@ body {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    z-index: 100;
 }
 
-.container_bienvenida .titulo, .container_bienvenida .subtitulo {
+.modal_volverAJugar {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+
+.container_bienvenida .titulo, .container_bienvenida .subtitulo, .modal_volverAJugar .titulo {
     text-transform: uppercase;
     font-size: 2.7rem;
     margin-bottom: 1.5rem;
@@ -66,7 +74,7 @@ body {
     text-align: center;
 }
 
-.container_bienvenida .formulario_user input[type="button"] {
+.container_bienvenida .formulario_user input[type="button"], .modal_volverAJugar .btn {
     padding: .75rem 1rem;
     font-size: 1.25rem;
     border-radius: 1rem;
@@ -79,7 +87,7 @@ body {
     text-transform: uppercase;
 }
 
-.container_bienvenida .formulario_user input[type="button"]:hover {
+.container_bienvenida .formulario_user input[type="button"]:hover, .modal_volverAJugar .btn:hover{
     color: #222;
     background-color: #eee;
     cursor: pointer;
@@ -174,10 +182,16 @@ body {
 
 /* ----------  ---------- */
 
+.grupoBotones {
+    display: flex;
+    gap: 1rem;
+}
+
+/* ----------  ---------- */
 
 @media screen and (min-width:577px) {
     /* ---------- Ventana bienvenida ---------- */
-    .container_bienvenida .titulo  {
+    .container_bienvenida .titulo, .modal_volverAJugar .titulo   {
         font-size: 3.2rem;
     }
 
