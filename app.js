@@ -4,8 +4,8 @@ let btnStart = document.getElementById('btnStart');
 let contBienvenida = document.querySelector('.container_bienvenida')
 let username;
 let player = document.getElementById('nombreJugador');
-let minutos = 0;
-let segundos = 0;
+let minutos;
+let segundos;
 let tiempo = document.getElementById('tiempo');
 let tiempoJuego;
 
@@ -31,6 +31,9 @@ function formateoDeTiempo(valor){
 function startNewGame(jugador){
     nombreJugador = jugador;
     player.innerHTML = nombreJugador;
+    minutos = 0;
+    segundos = 0;
+    board = [["","",""],["","",""],["","",""]]
 
     tiempoJuego = setInterval(()=>{
         tiempo.innerHTML = `${formateoDeTiempo(minutos)}:${formateoDeTiempo(segundos)}`
@@ -48,7 +51,7 @@ function startNewGame(jugador){
 // Nuevo
 
 // Variables
-let board = [["","",""],["","",""],["","",""]];
+let board;
 let boxes = document.getElementsByClassName('box');
 
 // AddEventListeners
@@ -99,7 +102,7 @@ for(let i = 0; i < boxes.length; i++){
             let hayVictoria = victoryFor(board, "X")
             if(!hayVictoria){
                 drawMove(board)
-                displayBoard(board)
+                setTimeout(()=>displayBoard(board),2000)
             }
         }
     })
@@ -135,7 +138,6 @@ function drawMove(board){
     let listaCuadrosVacios = makeListOfFreeFields(board);
     if(listaCuadrosVacios.length === 9){
         board[1][1] = "O"
-        displayBoard(board)
         return
     }
 
@@ -143,8 +145,6 @@ function drawMove(board){
         let indice = Math.floor(Math.random() * (listaCuadrosVacios.length - 0) + 0)
         let coords = listaCuadrosVacios[indice]
         board[coords[0]][coords[1]] = "O"
-        //return VictoryFor(board, "X")
-        displayBoard(board)
         return victoryFor(board, "O")
     }
 }
@@ -153,12 +153,22 @@ function victoryFor(board, sign){
     for(let fila of board){
         if(fila[0] === sign && fila[1] === sign && fila[2] === sign){
             if(sign === "O"){
-                alert("Perdiste! - Ganador: Computadora")
+                modal.innerHTML = `<h1 class="titulo">Perdiste!</h1>
+                <div class="grupoBotones">
+                    <button class="btn" onclick="volverAJugar()">Volver a jugar</button>
+                    <button class="btn" onclick="salirJuego()">Salir</button>
+                </div>`;
+                modal.classList.toggle('none')
                 clearInterval(tiempoJuego)
                 return true
             }
             if(sign === "X"){
-                alert(`Felicitaciones! - Ganador: ${username}`)
+                modal.innerHTML = `<h1 class="titulo">Ganaste!</h1>
+                <div class="grupoBotones">
+                    <button class="btn" onclick="volverAJugar()">Volver a jugar</button>
+                    <button class="btn" onclick="salirJuego()">Salir</button>
+                </div>`;
+                modal.classList.toggle('none')
                 clearInterval(tiempoJuego)
                 return true
             }
@@ -168,12 +178,22 @@ function victoryFor(board, sign){
     for(let columna = 0; columna < 3; columna++){
         if(board[0][columna] === sign && board[1][columna] === sign && board[2][columna] === sign){
             if(sign === "O"){
-                alert("Perdiste! - Ganador: Computadora")
+                modal.innerHTML = `<h1 class="titulo">Perdiste!</h1>
+                <div class="grupoBotones">
+                    <button class="btn" onclick="volverAJugar()">Volver a jugar</button>
+                    <button class="btn" onclick="salirJuego()">Salir</button>
+                </div>`;
+                modal.classList.toggle('none')
                 clearInterval(tiempoJuego)
                 return true
             }
             if(sign === "X"){
-                alert(`Felicitaciones! - Ganador: ${username}`)
+                modal.innerHTML = `<h1 class="titulo">Ganaste!</h1>
+                <div class="grupoBotones">
+                    <button class="btn" onclick="volverAJugar()">Volver a jugar</button>
+                    <button class="btn" onclick="salirJuego()">Salir</button>
+                </div>`;
+                modal.classList.toggle('none')
                 clearInterval(tiempoJuego)
                 return true
             }
@@ -182,12 +202,22 @@ function victoryFor(board, sign){
     
     if(board[0][0] === sign && board[1][1] === sign && board[2][2] === sign || board[2][0] === sign && board[1][1] === sign && board[0][2] === sign){
         if(sign === "O"){
-            alert("Perdiste! - Ganador: Computadora")
+            modal.innerHTML = `<h1 class="titulo">Perdiste!</h1>
+            <div class="grupoBotones">
+                <button class="btn" onclick="volverAJugar()">Volver a jugar</button>
+                <button class="btn" onclick="salirJuego()">Salir</button>
+            </div>`;
+            modal.classList.toggle('none')
             clearInterval(tiempoJuego)
             return true
         }
         if(sign === "X"){
-            alert(`Felicitaciones! - Ganador: ${username}`)
+            modal.innerHTML = `<h1 class="titulo">Ganaste!</h1>
+            <div class="grupoBotones">
+                <button class="btn" onclick="volverAJugar()">Volver a jugar</button>
+                <button class="btn" onclick="salirJuego()">Salir</button>
+            </div>`;
+            modal.classList.toggle('none')
             clearInterval(tiempoJuego)
             return true
         }
@@ -195,10 +225,34 @@ function victoryFor(board, sign){
     
     let listaCuadrosVacios = makeListOfFreeFields(board);
     if(listaCuadrosVacios.length === 0){
-        alert("Empate!")
+        modal.innerHTML = `<h1 class="titulo">Empate!</h1>
+        <div class="grupoBotones">
+            <button class="btn" onclick="volverAJugar()">Volver a jugar</button>
+            <button class="btn" onclick="salirJuego()">Salir</button>
+        </div>`;
+        modal.classList.toggle('none')
         clearInterval(tiempoJuego)
         return true
     }
 
     return false
+
+}
+
+
+// Nuevo nuevo
+let modal = document.getElementById('modal');
+
+// Funciones
+function volverAJugar(){
+    tiempo.innerHTML = "00:00"
+    modal.classList.toggle('none');
+    startNewGame(username)
+}
+
+function salirJuego(){
+    tiempo.innerHTML = "00:00"
+    modal.classList.toggle('none');
+    document.getElementById('user_name').value = ""
+    contBienvenida.classList.toggle('none');
 }
